@@ -1,0 +1,8 @@
+itemshop
+days
+2
+10
+15
+20
+30
+permanent
