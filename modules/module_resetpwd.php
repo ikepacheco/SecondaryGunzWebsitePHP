@@ -145,17 +145,21 @@ if(isset($_POST[submit]))
                           <p>
 						</div>
 						</td>
-						<td valign="top">
+						<td width="20" valign="top">&nbsp;</td>
+					  <td width="20" valign="top">&nbsp;</td>
+					  <td width="20" valign="top">&nbsp;</td>
+					  <td width="20" valign="top">&nbsp;</td>
+						<td valign="top" style="background-image: url('images/md_center.png'); background-size: 100% 66%">
+							<div style="margin: 20px 20px 20px 20px;">
 						<div align="center">
-							<table border="1" style="border-collapse: collapse" width="100%" bordercolor="#000000">
+							<table border="0" style="border-collapse: collapse;background: url('images/md_register.png') no-repeat center top; background-size: 100% 100%" width="100%" height="440" bordercolor="#000000">
 								<tr>
-									<td background="images/content_bar.jpg" height="24" style="background-image: url('images/content_bar.jpg'); background-repeat: no-repeat; background-position: center top">
-									<div align="center">
-										<b><font face="Tahoma" size="2">Recuperar 
-										Cuenta</font></b></td>
+									<td height="24" style="">
+									<div align="left">
+										<b><font face="Tahoma" size="2">&nbsp;&nbsp;Recover Account</font></b></td>
 								</tr>
 								<tr>
-									<td bgcolor="#2C2A2A">
+									<td>
 									<div align="center">
 										<form method="POST" action="index.php?do=resetpwd&paso=3" name="resetpwd">
 											<table border="0" style="border-collapse: collapse; float:left" width="408" height="100%">
@@ -168,7 +172,7 @@ if(isset($_POST[submit]))
 												</td>
 											</tr>
 											<tr>
-												<td width="398" style="background-repeat: no-repeat; background-position: center top" colspan="5" background="images/mis_eumember.jpg" height="62">
+												<td width="398" style="background-repeat: no-repeat; background-position: center top;background-size: 90% 100%" colspan="5" background="images/mis_eumember.png" height="62">
 												<div align="center">
 													<table border="0" style="border-collapse: collapse" width="402" height="100%">
 														<tr>
@@ -180,9 +184,7 @@ if(isset($_POST[submit]))
 															<td width="10">&nbsp;</td>
 															<td width="376" rowspan="2">
 															<div align="center">
-															Por Favor Complete 
-															Con La Informacion 
-															Correcta
+															Complete with correct information please
 															</td>
 															<td width="10">&nbsp;</td>
 														</tr>
@@ -215,7 +217,7 @@ if(isset($_POST[submit]))
 												<td width="9" style="background-repeat: no-repeat; background-position: center top">&nbsp;
 												</td>
 												<td width="10" style="background-repeat: no-repeat; background-position: center top">
-												<img border="0" src="images/mis_arrow.jpg" width="5" height="9" id="img1764"></td>
+												<img border="0" src="images/mis_arrow.png" width="5" height="9" id="img1764"></td>
 												<td width="184" style="background-repeat: no-repeat; background-position: center top" align="left">
 												UserID</td>
 												<td width="185" style="background-repeat: no-repeat; background-position: center top" align="left">
@@ -239,11 +241,11 @@ if(isset($_POST[submit]))
 												<td width="9" style="background-repeat: no-repeat; background-position: center top">&nbsp;
 												</td>
 												<td width="10" style="background-repeat: no-repeat; background-position: center top">
-												<img border="0" src="images/mis_arrow.jpg" width="5" height="9"></td>
+												<img border="0" src="images/mis_arrow.png" width="5" height="9"></td>
 												<td width="184" style="background-repeat: no-repeat; background-position: center top" align="left">
-												EMail</td>
+												E-mail</td>
 												<td width="185" style="background-repeat: no-repeat; background-position: center top" align="left">
-												<input type="text" name="email" size="20" class="textLogin"></td>
+												<input style="background: #FFF;box-shadow: inset 0 0 10px #000;color:#000;padding: 5px 10px 5px 10px;" type="text" name="email" size="20" class="textLogin"></td>
 												<td width="13" style="background-repeat: no-repeat; background-position: center top">&nbsp;
 												</td>
 											</tr>
@@ -263,9 +265,9 @@ if(isset($_POST[submit]))
 												<td width="9" style="background-repeat: no-repeat; background-position: center top">&nbsp;
 												</td>
 												<td width="10" style="background-repeat: no-repeat; background-position: center top">
-												<img border="0" src="images/mis_arrow.jpg" width="5" height="9"></td>
+												<img border="0" src="images/mis_arrow.png" width="5" height="9"></td>
 												<td width="184" style="background-repeat: no-repeat; background-position: center top" align="left">
-												Pregunta Secreta</td>
+												Secret Question</td>
 												<td width="185" style="background-repeat: no-repeat; background-position: center top" align="left">
 												<?=$RstData['sq']?></td>
 												<td width="13" style="background-repeat: no-repeat; background-position: center top">&nbsp;
@@ -287,11 +289,11 @@ if(isset($_POST[submit]))
 												<td width="9" style="background-repeat: no-repeat; background-position: center top">&nbsp;
 												</td>
 												<td width="10" style="background-repeat: no-repeat; background-position: center top">
-												<img border="0" src="images/mis_arrow.jpg" width="5" height="9"></td>
+												<img border="0" src="images/mis_arrow.png" width="5" height="9"></td>
 												<td width="184" style="background-repeat: no-repeat; background-position: center top" align="left">
-												Respuesta Secreta</td>
+												Secret Answer</td>
 												<td width="185" style="background-repeat: no-repeat; background-position: center top" align="left">
-												<input type="text" name="sa" size="20" class="textLogin"></td>
+												<input style="background: #FFF;box-shadow: inset 0 0 10px #000;color:#000;padding: 5px 10px 5px 10px;" type="text" name="sa" size="20" class="textLogin"></td>
 												<td width="13" style="background-repeat: no-repeat; background-position: center top">&nbsp;
 												</td>
 											</tr>
@@ -308,7 +310,7 @@ if(isset($_POST[submit]))
 												</td>
 											</tr>
 											<tr>
-												<td width="401" style="background-repeat: no-repeat; background-position: center top" colspan="5" background="images/mis_eumember.jpg" height="64">
+												<td width="401" style="background-repeat: no-repeat; background-position: center top;background-size: 90% 100%" colspan="5" background="images/mis_eumember.png" height="64">
 												<div align="center">
 													<table border="0" style="border-collapse: collapse" width="402" height="100%">
 														<tr>
@@ -320,9 +322,7 @@ if(isset($_POST[submit]))
 															<td width="10">&nbsp;</td>
 															<td width="377" rowspan="2">
 															<div align="center">
-															Introduzca La Nueva 
-															Contrase�a Y Por 
-															Favor Recuerdela</td>
+															Insert new password and save it</td>
 															<td width="9">&nbsp;</td>
 														</tr>
 														<tr>
@@ -354,11 +354,11 @@ if(isset($_POST[submit]))
 												<td width="9" style="background-repeat: no-repeat; background-position: center top">&nbsp;
 												</td>
 												<td width="10" style="background-repeat: no-repeat; background-position: center top">
-												<img border="0" src="images/mis_arrow.jpg" width="5" height="9"></td>
+												<img border="0" src="images/mis_arrow.png" width="5" height="9"></td>
 												<td width="184" style="background-repeat: no-repeat; background-position: center top" align="left">
-												Contrase�a</td>
+												Password</td>
 												<td width="185" style="background-repeat: no-repeat; background-position: center top" align="left">
-												<input type="password" name="pass1" size="20" class="textLogin"></td>
+												<input style="background: #FFF;box-shadow: inset 0 0 10px #000;color:#000;padding: 5px 10px 5px 10px;" type="password" name="pass1" size="20" class="textLogin"></td>
 												<td width="13" style="background-repeat: no-repeat; background-position: center top">&nbsp;
 												</td>
 											</tr>
@@ -378,11 +378,11 @@ if(isset($_POST[submit]))
 												<td width="9" style="background-repeat: no-repeat; background-position: center top">&nbsp;
 												</td>
 												<td width="10" style="background-repeat: no-repeat; background-position: center top">
-												<img border="0" src="images/mis_arrow.jpg" width="5" height="9"></td>
+												<img border="0" src="images/mis_arrow.png" width="5" height="9"></td>
 												<td width="184" style="background-repeat: no-repeat; background-position: center top" align="left">
-												Repita Contrase�a</td>
+												Confirm Password</td>
 												<td width="185" style="background-repeat: no-repeat; background-position: center top" align="left">
-												<input type="password" name="pass2" size="20" class="textLogin"></td>
+												<input style="background: #FFF;box-shadow: inset 0 0 10px #000;color:#000;padding: 5px 10px 5px 10px;" type="password" name="pass2" size="20" class="textLogin"></td>
 												<td width="13" style="background-repeat: no-repeat; background-position: center top">&nbsp;
 												</td>
 											</tr>
@@ -422,7 +422,12 @@ if(isset($_POST[submit]))
 								</tr>
 							</table>
 						</div>
+						</div>
 						</td>
+						<td width="20" valign="top">&nbsp;</td>
+					  <td width="20" valign="top">&nbsp;</td>
+					  <td width="20" valign="top">&nbsp;</td>
+					  <td width="20" valign="top">&nbsp;</td>
 						<td width="171" valign="top">
 						<div align="center">
 							<? include "blocks/block_login.php" ?>
@@ -450,17 +455,22 @@ if(isset($_POST[submit]))
                           <p>
 						</div>
 						</td>
-						<td valign="top">
+						<td width="20" valign="top">&nbsp;</td>
+					  <td width="20" valign="top">&nbsp;</td>
+					  <td width="20" valign="top">&nbsp;</td>
+					  <td width="20" valign="top">&nbsp;</td>
+						<td valign="top" style="background-image: url('images/md_center.png'); background-size: 100% 80%">
+							<div style="margin: 20px 20px 20px 20px;">
 						<div align="center">
-							<table border="1" style="border-collapse: collapse" width="100%" bordercolor="#000000">
+							<table border="0" style="border-collapse: collapse;background: url('images/md_register.png') no-repeat center top; background-size: 100%; border-bottom: 1px solid rgba(124,255,255, 0.3)" width="100%" height="140" bordercolor="#000000">
 								<tr>
-									<td background="images/content_bar.jpg" height="24" style="background-image: url('images/content_bar.jpg'); background-repeat: no-repeat; background-position: center top">
+									<td height="24" style="">
 									<div align="center">
 										<b><font face="Tahoma" size="2">
 										Recuperar Cuenta</font></b></td>
 								</tr>
 								<tr>
-									<td bgcolor="#2C2A2A">
+									<td>
 									<div align="center">
 										<form method="POST" action="index.php?do=resetpwd&paso=2" name="resetpwd">
 											<table border="0" style="border-collapse: collapse; float:left" width="408" height="100%">
@@ -473,7 +483,7 @@ if(isset($_POST[submit]))
 												</td>
 											</tr>
 											<tr>
-												<td width="398" style="background-repeat: no-repeat; background-position: center top" colspan="5" background="images/mis_eumember.jpg" height="62">
+												<td width="398" style="background-repeat: no-repeat; background-position: center top; background-size: 80% 100%" colspan="5" background="images/mis_eumember.png" height="62">
 												<div align="center">
 													<table border="0" style="border-collapse: collapse" width="402" height="100%">
 														<tr>
@@ -520,11 +530,11 @@ if(isset($_POST[submit]))
 												<td width="9" style="background-repeat: no-repeat; background-position: center top">&nbsp;
 												</td>
 												<td width="10" style="background-repeat: no-repeat; background-position: center top">
-												<img border="0" src="images/mis_arrow.jpg" width="5" height="9" id="img1764"></td>
+												<img border="0" src="images/mis_arrow.png" width="5" height="9" id="img1764"></td>
 												<td width="184" style="background-repeat: no-repeat; background-position: center top" align="left">
 												UserID</td>
 												<td width="185" style="background-repeat: no-repeat; background-position: center top" align="left">
-												<input type="text" name="userid" size="20" class="textLogin"></td>
+												<input style="background: #FFF;box-shadow: inset 0 0 10px #000;color:#000;padding: 5px 10px 5px 10px;" type="text" name="userid" size="20" class="textLogin"></td>
 												<td width="13" style="background-repeat: no-repeat; background-position: center top">&nbsp;
 												</td>
 											</tr>
@@ -563,6 +573,7 @@ if(isset($_POST[submit]))
 									</td>
 								</tr>
 							</table>
+						</div>
 						</div>
 						</td>
 						<td width="171" valign="top">

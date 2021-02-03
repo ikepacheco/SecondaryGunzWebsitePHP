@@ -4,35 +4,37 @@
 
 <?
 SetTitle("SecondaryGunz - Clan Ranking");
+$clanname = clean($_POST[clanname]);
+$clname = $clanname;
 ?>
 <table border="0" style="border-collapse: collapse" width="778">
 					<tr>
-						<td width="164" style="background-image: url('images/md_content_menu.jpg'); background-repeat: no-repeat; background-position: center top" valign="top">
+						<td width="164" style="background-image: url('images/md_center.png'); background-repeat: no-repeat; background-position: center top; background-size: 100% 65px" valign="top">
 						<div align="center">
 							<table border="0" style="border-collapse: collapse" width="164">
 								<tr>
-									<td width="14" height="36">&nbsp;</td>
-									<td width="127" height="36">&nbsp;</td>
-									<td width="17" height="36">&nbsp;</td>
+									<td width="14" height="1">&nbsp;</td>
+									<td width="127" height="1">&nbsp;</td>
+									<td width="17" height="1">&nbsp;</td>
 								</tr>
 								<tr>
 									<td width="14">&nbsp;</td>
 									<td width="127">
 									<a href="index.php?do=individualrank">
-									<img border="0" src="images/btn_individualrank_off.jpg" id = "76176img" width="131" height="21" onmouseout="FP_swapImgRestore()" onmouseover="FP_swapImg(1,1,/*id*/'76176img',/*url*/'images/btn_individualrank_on.jpg')"></a></td>
+									<p style="font-size: 11pt;">Individual Rank</p></td>
 									<td width="17">&nbsp;</td>
 								</tr>
 								<tr>
 									<td width="14">&nbsp;</td>
 									<td width="127">
-									<img border="0" src="images/btn_clanranking_on.jpg" width="131" height="22"></td>
+									<p style="font-size: 11pt; text-shadow: 0px 0px 5px #fff">Clan Rank</p></td>
 									<td width="17">&nbsp;</td>
-								</tr>
+								</tr><!--
 								<tr>
 									<td width="14">&nbsp;</td>
 									<td width="127"><a href="index.php?do=halloffame"><img src="images/btn_halloffame_off.jpg" alt="" border="0" id="hall" onmouseover="FP_swapImg(1,1,/*id*/'hall',/*url*/'images/btn_halloffame_on.jpg')" onmouseout="FP_swapImgRestore()" /></a></td>
 								  <td width="17">&nbsp;</td>
-								</tr>
+								</tr>-->
 								<tr>
 									<td width="14">&nbsp;</td>
 									<td width="127">&nbsp;</td>
@@ -76,9 +78,11 @@ SetTitle("SecondaryGunz - Clan Ranking");
 						<p></td>
 						<td width="599" valign="top">
 						<div align="center">
-							<table border="0" style="background-position: center top; border-collapse: collapse; background-image:url('images/content_bg.jpg'); background-repeat:repeat-y" width="603">
-								<tr>
-									<td style="background-image: url('images/content_title_ranking1.jpg'); background-repeat: no-repeat; background-position: center top" height="25" width="601" colspan="3">&nbsp;</td>
+							<table border="0" style="background-position: center top; border-collapse: collapse; background-image:url('images/content_bg.jpg'); background-repeat:repeat-y;background-size: 100%" width="603">
+							<tr>
+									<td style="background-image: url('images/content_title_ranking2.jpg'); background-repeat: no-repeat; background-position: center top; background-size: 100%" height="52" width="601" colspan="3">
+										
+									</td>
 								</tr>
 								<tr>
 									<td style="background-repeat: repeat; background-position: center top" width="7" rowspan="5">&nbsp;<p>&nbsp;</p>
@@ -99,7 +103,7 @@ SetTitle("SecondaryGunz - Clan Ranking");
                                             while($resa = mssql_fetch_object($res))
                                             {
                                                 $FirstClan[$Count][Name]        = $resa->Name;
-                                                $FirstClan[$Count][EmblemURL]   = ($resa->EmblemUrl == "") ? "noemblem.jpg" : $resa->EmblemUrl;
+                                                $FirstClan[$Count][EmblemURL]   = ($resa->EmblemUrl == "") ? "noemblem.png" : $resa->EmblemUrl;
 
                                             if($Count == 4)
                                                 break;
@@ -107,31 +111,42 @@ SetTitle("SecondaryGunz - Clan Ranking");
                                                 $Count++;
                                             }
 
-                                            $firstclanemb0 = ($FirstClan[0][EmblemURL] == "") ? "noemblem.jpg" : $FirstClan[0][EmblemURL];
-                                            $firstclanemb1 = ($FirstClan[1][EmblemURL] == "") ? "noemblem.jpg" : $FirstClan[1][EmblemURL];
-                                            $firstclanemb2 = ($FirstClan[2][EmblemURL] == "") ? "noemblem.jpg" : $FirstClan[2][EmblemURL];
-                                            $firstclanemb3 = ($FirstClan[3][EmblemURL] == "") ? "noemblem.jpg" : $FirstClan[3][EmblemURL];
+                                            $firstclanemb0 = ($FirstClan[0][EmblemURL] == "") ? "noemblem.png" : $FirstClan[0][EmblemURL];
+                                            $firstclanemb1 = ($FirstClan[1][EmblemURL] == "") ? "noemblem.png" : $FirstClan[1][EmblemURL];
+                                            $firstclanemb2 = ($FirstClan[2][EmblemURL] == "") ? "noemblem.png" : $FirstClan[2][EmblemURL];
+                                            $firstclanemb3 = ($FirstClan[3][EmblemURL] == "") ? "noemblem.png" : $FirstClan[3][EmblemURL];
 
                                             $firstclanname0 = ($FirstClan[0][Name] == "") ? "No hay datos" : $FirstClan[0][Name];
                                             $firstclanname1 = ($FirstClan[1][Name] == "") ? "No hay datos" : $FirstClan[1][Name];
                                             $firstclanname2 = ($FirstClan[2][Name] == "") ? "No hay datos" : $FirstClan[2][Name];
                                             $firstclanname3 = ($FirstClan[3][Name] == "") ? "No hay datos" : $FirstClan[3][Name];
 
-
+											if(!file_exists("http://localhost/emblem/$firstclanemb0")){
+												$firstclanemb0 = "noemblem.png";
+											}
+											if(!file_exists("http://localhost/emblem/$firstclanemb1")){
+												$firstclanemb1 = "noemblem.png";
+											}
+											if(!file_exists("http://localhost/emblem/$firstclanemb2")){
+												$firstclanemb2 = "noemblem.png";
+											}
+											if(!file_exists("http://localhost/emblem/$firstclanemb3")){
+												$firstclanemb3 = "noemblem.png";
+											}
                                             $toprank = '
 											<tr>
 												<td width="144" valign="bottom" height="107">
 												<div  align="center">
-												<img src="http://fantasygz.com/emblem/'.$firstclanemb0.'" width="64" height="64" style="border: 1px solid #000000"></td>
+												<img src="http://localhost/emblem/'.$firstclanemb0.'" width="64" height="64" style="border: 0px solid #000000"></td>
 												<td width="135" valign="bottom" height="107">
 												<div align="center">
-												<img src="http://fantasygz.com/emblem/'.$firstclanemb1.'" width="64" height="64" style="border: 1px solid #000000"></td>
+												<img src="http://localhost/emblem/'.$firstclanemb1.'" width="64" height="64" style="border: 0px solid #000000"></td>
 												<td width="126" valign="bottom" height="107">
 												<div align="center">
-												<img src="http://fantasygz.com/emblem/'.$firstclanemb2.'" width="64" height="64" style="border: 1px solid #000000"></td>
+												<img src="http://localhost/emblem/'.$firstclanemb2.'" width="64" height="64" style="border: 0px solid #000000"></td>
 												<td width="151" valign="bottom" height="107">
 												<div align="center">
-												<img src="http://fantasygz.com/emblem/'.$firstclanemb3.'" width="64" height="64" style="border: 1px solid #000000"></td>
+												<img src="http://localhost/emblem/'.$firstclanemb3.'" width="64" height="64" style="border: 0px solid #000000"></td>
 											</tr>
 											<tr>
 												<td width="556" colspan="4" height="40">
@@ -179,13 +194,21 @@ SetTitle("SecondaryGunz - Clan Ranking");
                                 echo $toprank;
                                 ?>
 								<tr>
-									<td style="background-repeat: repeat; background-position: center top" width="583" valign="top">
-                                    <form method="GET" name="rnksearch" action="index.php">
-                                    <input type="hidden" name="do" value="clanrank" />
-                                    <p align="center">
-                                    &nbsp;&nbsp;&nbsp;&nbsp;
-                                    </p>
-					                </form>
+									<td style="background-repeat: repeat; background-position: center top" width="583" valign="top"><br>
+                                    <form method="POST" action="index.php?do=clanrank"  name="frmSearch">
+											<div align="center" style="margin-right:20px;margin-bottom: 8px">
+											<table>
+											<tr>
+											<td>
+											<input name="clanname" id="clanname" style=" border: none; padding: 5px; box-shadow: inset 0px 0px 6px #000; height: 26" align="right" type="text" placeholder="Clan"> 
+											</td>
+											<td>
+											<input name="search" id="search" style="background: url('images/search.jpg'); width: 100; height: 26; border: none;" type="submit" value="">
+											</td>
+											</tr>
+											</table>
+											<div>
+										</form>
                                     </td>
 								</tr>
 								<tr>
@@ -204,10 +227,10 @@ SetTitle("SecondaryGunz - Clan Ranking");
 												<td width="98" height="21" valign="bottom">
 												<div align="center">
 													<b><font face="Tahoma">
-													Nombre del Clan</font></b></td>
+													Name</font></b></td>
 												<td width="93" height="21" valign="bottom">
 												<div align="center">
-													<b><font face="Tahoma">L�der</font></b></td>
+													<b><font face="Tahoma">Leader</font></b></td>
 												<td width="82" height="21" valign="bottom">
 												<div align="center">
 													<font face="Tahoma"><b>Win/Losses</b></font></td>
@@ -298,13 +321,22 @@ SetTitle("SecondaryGunz - Clan Ranking");
                                                                 default:
                                                                     $ranks = "Ranking <= 20";
                                                                 break;
-                                                            }
-                                                            $res = mssql_query_logged("SELECT TOP 100 * FROM Clan(nolock) WHERE (DeleteFlag=0 OR DeleteFlag=NULL) AND (Wins != 0 OR Losses != 0) AND $ranks ORDER BY Point DESC, TotalPoint DESC, Wins DESC, Losses ASC");
-                                                        }
+															}
+															
+														
+															if($clname <> ""){
+																$res = mssql_query_logged("SELECT * FROM Clan(nolock) WHERE (DeleteFlag=0 OR DeleteFlag=NULL) AND Name like '$clname'");
+															}else{
+																$res = mssql_query_logged("SELECT TOP 100 * FROM Clan(nolock) WHERE (DeleteFlag=0 OR DeleteFlag=NULL) AND (Wins != 0 OR Losses != 0) AND $ranks ORDER BY Point DESC, TotalPoint DESC, Wins DESC, Losses ASC");
+															}
+                                                            
+														}
                                                         else
                                                         {
                                                             $res = mssql_query_logged($squery);
-                                                        }
+														}
+
+
                                                        if(mssql_num_rows($res) <> 0)
                                                         {
                                                             $count = 1;
@@ -312,14 +344,18 @@ SetTitle("SecondaryGunz - Clan Ranking");
                                                             while($clan = mssql_fetch_object($res))
                                                             {
 
-                                                        $clanemburl = ($clan->EmblemUrl == "") ? "noemblem.jpg" : $clan->EmblemUrl;
+														$clanemburl = ($clan->EmblemUrl == "") ? "noemblem.png" : $clan->EmblemUrl;
+														
+														if(!file_exists("http://localhost/emblem/$clanemburl")){
+															$clanemburl = "noemblem.png";
+														}
                                                         $clanrank .= '
                                                         <tr>
 															<td width="59" align="center">
 															<b>'.$count.'</b></td>
 															<td width="43" align="center">
 															<div align="center">
-													        <img src="http://fantasygz.com/emblem/'.$clanemburl.'" width="34" height="30" style="border: 1px solid #000000"></td>
+													        <img src="http://localhost/emblem/'.$clanemburl.'" width="34" height="30" style="border: 0px solid #000000"></td>
 															<td width="99" align="center">
 															'.$clan->Name.'</td>
 															<td width="93" align="center">
@@ -363,7 +399,7 @@ SetTitle("SecondaryGunz - Clan Ranking");
 									<td style="background-repeat: repeat; background-position: center top" width="583" valign="top">&nbsp;</td>
 								</tr>
 								<tr>
-									<td height="17" style="background-image: url('images/content_top.jpg'); background-repeat: no-repeat; background-position: center bottom" width="601" colspan="3"></td>
+									<td height="17" style="background-image: url('images/content_top.jpg'); background-repeat: no-repeat; background-position: center bottom;background-size: 100%" width="601" colspan="3"></td>
 								</tr>
 							</table>
 						</div>

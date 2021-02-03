@@ -148,16 +148,21 @@ else
                             <? include "blocks/block_rankingc.php" ?>
                           <p>
 						</div>						<p>&nbsp;</p></td>
-						<td valign="top">
+						<td width="20" valign="top">&nbsp;</td>
+					  <td width="20" valign="top">&nbsp;</td>
+					  <td width="20" valign="top">&nbsp;</td>
+					  <td width="20" valign="top">&nbsp;</td>
+						<td valign="top" style="background-image: url('images/md_center.png'); background-size: 100% 40%">
+							<div style="margin: 20px 20px 20px 20px;">
 						<div align="center">
-							<table border="1" style="border-collapse: collapse" width="100%" bordercolor="#000000">
+							<table border="0" style="border-collapse: collapse;background: url('images/md_register.png') no-repeat center top; background-size: 100%; border-bottom: 1px solid rgba(124,255,255, 0.3)" width="100%">
 								<tr>
-									<td background="images/content_bar.jpg" height="24" style="background-image: url('images/content_bar.jpg'); background-repeat: no-repeat; background-position: center top">
-									<div align="center">
-										<b><font face="Tahoma" size="2">Cambiar Bounty por SGCoins</font></b></td>
+									<td height="24" style="">
+									<div align="left">
+										<b><font face="Tahoma" size="2">&nbsp;&nbsp;Change SGCoins from Bounty</font></b></td>
 							  </tr>
 								<tr>
-									<td bgcolor="#2C2A2A">
+									<td>
 									<div align="center"><form method="POST" action="index.php?do=changebt" name="changebt">
 										<table border="0" style="border-collapse: collapse" width="414" height="100%">
 											<tr>
@@ -167,10 +172,10 @@ else
 											</tr>
 											<tr>
 												<td width="10">&nbsp;</td>
-												<td width="315" colspan="3"><p>Aqui puedes comprar AGCoins usando el bounty de los personajes.
+												<td width="315" colspan="3"><p>Here you can buy AGCoins using bounty of character.
                                                   <br />
                                                   <br />
-                                              Cada AGCoin cuesta 300 de Bounty.</p>
+                                              Every SGCoin costs 300 bounty.</p>
 											  </td>
 											  <td width="11">&nbsp;</td>
 											</tr>
@@ -182,7 +187,7 @@ else
 											<tr>
 												<td width="10">&nbsp;</td>
 												<td width="181">
-												<p align="right">Selecciona Personaje:</td>
+												<p align="right">Select character:</td>
 												<td width="13">&nbsp;</td>
 												<td width="190">
 												<select size="1" name="charlist" onchange="UpdateBP()">
@@ -205,7 +210,7 @@ else
 											<tr>
 												<td width="10">&nbsp;</td>
 												<td width="181">
-												<p align="right">Total de Bounty:</td>
+												<p align="right">Total Bounty:</td>
 												<td width="13">&nbsp;</td>
 												<td width="190"><b><span id="bountyactual">0</span></b></td>
 												<td width="11">&nbsp;</td>
@@ -221,7 +226,7 @@ else
                                             <tr>
 												<td width="10">&nbsp;</td>
 												<td width="181">
-												<p align="right">Cantidad de Bounty que Compraras:</td>
+												<p align="right">Quantity of SGCoins:</td>
 												<td width="13">&nbsp;</td>
 												<td width="190">
 												<input type="text" name="totalcoins" size="9" onkeypress="return SoloNumeros(event)" onkeyup="UpdateRBP()" value=0></td>
@@ -235,7 +240,7 @@ else
                                             <tr>
 												<td width="10">&nbsp;</td>
 												<td width="181">
-												<p align="right">Cantidad de Bounty requerida:</td>
+												<p align="right">Bounty required:</td>
 												<td width="13">&nbsp;</td>
 												<td width="190">
 												<p align="left"><span id="precio">0</span></td>
@@ -250,7 +255,7 @@ else
 												<td width="10">&nbsp;</td>
 												<td colspan="3">
 												<p align="center">
-												<input type="submit" value="Comprar SGCoins" name="submit"></td>
+												<input type="submit" value="Purchase SGCoins" name="submit"></td>
 												<td width="11">&nbsp;</td>
 											</tr>
 										</table></form>
@@ -259,6 +264,11 @@ else
 								</tr>
 							</table>
 						</div>
+						</div>
+						<td width="20" valign="top">&nbsp;</td>
+					  <td width="20" valign="top">&nbsp;</td>
+					  <td width="20" valign="top">&nbsp;</td>
+					  <td width="20" valign="top">&nbsp;</td>
 						<p align="center">&nbsp;</td>
 						<td width="171" valign="top">
 						<div align="center">

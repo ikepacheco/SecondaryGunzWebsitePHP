@@ -197,7 +197,7 @@ SetTitle("SecondaryGunz - Hall of Fame");
                                     while($clan = mssql_fetch_object($res))
                                     {
 
-                                        $clanemburl = ($clan->EmblemUrl == "") ? "noemblem.jpg" : $clan->EmblemUrl;
+                                        $clanemburl = ($clan->EmblemUrl == "") ? "noemblem.png" : $clan->EmblemUrl;
                                 ?>
                                     <tr>
 									    <td width="59" align="center">
@@ -345,7 +345,7 @@ SetTitle("SecondaryGunz - Hall of Fame");
                                                             while($clan = mssql_fetch_object($res))
                                                             {
 
-                                                        $clanemburl = ($clan->EmblemUrl == "") ? "noemblem.jpg" : $clan->EmblemUrl;
+                                                        $clanemburl = ($clan->EmblemUrl == "") ? "noemblem.png" : $clan->EmblemUrl;
                                                         ?>
                                                         <tr>
 															<td width="59" align="center">

@@ -180,7 +180,7 @@ function UpdateClan()
 	var CData = ClanData.split("-|-");
 
 	MasterTxt.innerHTML = CData[1];
-	Emblem.src = "http://fantasygz.com/emblem/" + CData[3];
+	Emblem.src = "http://localhost/emblem/" + CData[3];
 	ClanLink.href = "javascript:ShowPanel(" + CData[2] + ");";
 }
 </script>
@@ -312,7 +312,7 @@ function UpdateClan()
                                                 <table border="0" style="border-collapse: collapse" width="100%" height="100%">
 														<tr>
 															<td rowspan="4">
-															<img id="imageclan" src="http://fantasygz.com/emblem" width="55" height="55" style="border: 1px solid #000000"></td>
+															<img id="imageclan" src="http://localhost/emblem" width="55" height="55" style="border: 1px solid #000000"></td>
 															<td width="124">
 															<div align="left">
 															<select onChange="UpdateClan()" id="clanlist" size="1" name="selclan" style="color: #FFFFFF; font-family: Verdana; font-size: 7pt; border: 1px solid #000000; background-color: #101010">
@@ -331,7 +331,7 @@ function UpdateClan()
                                                                          $_CLAN[Name]       = $b[Name];
                                                                          $_CLAN[Master]     = GetClanMasterByCLID($a[CLID]);
                                                                          $_CLAN[CLID]       = $a[CLID];
-                                                                         $_CLAN[Emblem]     = ($b[EmblemUrl] == "") ? "noemblem.jpg" : $b[EmblemUrl];
+                                                                         $_CLAN[Emblem]     = ($b[EmblemUrl] == "") ? "noemblem.png" : $b[EmblemUrl];
 
                                                                          $info = implode("-|-", $_CLAN);
 
@@ -465,7 +465,7 @@ function UpdateClan()
 											</tr>
 											<tr>
 												<td width="6" height="38">&nbsp;</td>
-											  <td width="155"><div align="center"><a href="index.php?do=editaccount"><img border="0" src="images/btn_editacc_off.jpg" width="72" height="16" id="img1781" onMouseOut="FP_swapImgRestore()" onMouseOver="FP_swapImg(1,1,/*id*/'img1781',/*url*/'images/btn_editacc_on1.jpg')"></a> <a href="index.php?do=logout"> <img border="0" src="images/btn_changebt_off.jpg" width="72" height="16" id="img1782" onMouseOut="FP_swapImgRestore()" onMouseOver="FP_swapImg(1,1,/*id*/'img1782',/*url*/'images/btn_changebt_on1.jpg')"></a></div></td>
+											  <td width="155"><div align="center"><a href="index.php?do=usercp"><img border="0" src="images/btn_editacc_off.jpg" width="72" height="16" id="img1781" onMouseOut="FP_swapImgRestore()" onMouseOver="FP_swapImg(1,1,/*id*/'img1781',/*url*/'images/btn_editacc_on1.jpg')"></a> <a href="index.php?do=logout"> <img border="0" src="images/btn_changebt_off.jpg" width="72" height="16" id="img1782" onMouseOut="FP_swapImgRestore()" onMouseOver="FP_swapImg(1,1,/*id*/'img1782',/*url*/'images/btn_changebt_on1.jpg')"></a></div></td>
 												<td width="8">&nbsp;</td>
 											</tr>
 											<tr>

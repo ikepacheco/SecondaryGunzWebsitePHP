@@ -13,66 +13,55 @@ SetTitle("SecondaryGunz - UserCP");
                             <? include "blocks/block_rankingc.php" ?>
                           <p>
 						</div>						<p>&nbsp;</p></td>
-						<td valign="top">
+					  <td width="20" valign="top">&nbsp;</td>
+					  <td width="20" valign="top">&nbsp;</td>
+					  <td width="20" valign="top">&nbsp;</td>
+					  <td width="20" valign="top">&nbsp;</td>
+						<td valign="top" style="background-image: url('images/md_center.png'); background-size: 100% 29%">
+							<div style="margin: 20px 20px 20px 20px;">
 						<div align="center">
-							<table border="1" style="border-collapse: collapse" width="100%" bordercolor="#000000">
+							<table border="0" style="border-collapse: collapse;background: url('images/md_register.png') no-repeat center top; background-size: 100%; border-bottom: 1px solid rgba(124,255,255, 0.3)" width="100%" bordercolor="#000000">
 								<tr>
-									<td background="images/content_bar.jpg" height="24" style="background-image: url('images/content_bar.jpg'); background-repeat: no-repeat; background-position: center top">
-									<div align="center">
-										<b><font face="Tahoma" size="2">Panel de Usuario</font></b></td>
+									<td height="24">
+									<div align="left">
+										<b><font face="Tahoma" size="2">&nbsp;&nbsp;Panel de Usuario</font></b></td>
 							  </tr>
 								<tr>
-									<td bgcolor="#2C2A2A">
+									<td>
 									<div align="center"><form method="POST" action="index.php?do=changebt" name="changebt">
 									  <table width="358" border="0">
                                         <tr>
-                                          <td width="210">SecondaryGunZ Foro</td>
-                                          <td width="80"><div align="center">Click Aqui</div></td>
+                                          <td>&nbsp;Edit Account</td>
+                                          <td><div align="center"><a href="index.php?do=editaccount">Click Aqui</a></div></td>
                                         </tr>
                                         <tr>
-                                          <td>Servidor de TeamSpeak 3</td>
-                                          <td><div align="center"><a href="index.php?do=teamspeak">Click Aqui</a></div></td>
-                                        </tr>
-                                        <tr>
-                                          <td>Servidor de Ventrillo</td>
-                                          <td><div align="center"><a href="index.php?do=ventrillo">Click Aqui</a></div></td>
-                                        </tr>
-                                        <tr>
-                                          <td>Recuperar Contrase&ntilde;a</td>
-                                          <td><div align="center"><a href="index.php?do=resetpwd">Click Aqui</a></div></td>
-                                        </tr>
-                                        <tr>
-                                          <td>Registrarse</td>
-                                          <td><div align="center"><a href="index.php?do=register">Click Aqui</a></div></td>
-                                        </tr>
-                                        <tr>
-                                          <td>Cambiar Coins por Bounty</td>
+                                          <td>&nbsp;Change Coins from bounty</td>
                                           <td><div align="center"><a href="index.php?do=changebt">Click Aqui</a></div></td>
                                         </tr>
                                         <tr>
-                                          <td>Donar a SecondaryGunZ</td>
+                                          <td>&nbsp;Donate to SecondaryGunZ</td>
                                           <td><div align="center"><a href="index.php?do=donate">Click Aqui</a></div></td>
                                         </tr>
                                         <tr>
-                                          <td>Firma Dinamica</td>
+                                          <td>&nbsp;Signature Player</td>
                                           <td><div align="center"><a href="index.php?do=signature">Click Aqui</a></div></td>
                                         </tr>
                                         <tr>
-                                          <td>Descargas</td>
+                                          <td>&nbsp;Download</td>
                                           <td><div align="center"><a href="index.php?do=download">Click Aqui</a></div></td>
                                         </tr>
                                         <tr>
-                                          <td>Individual Ranking</td>
+                                          <td>&nbsp;Individual Ranking</td>
                                           <td><div align="center"><a href="index.php?do=individualrank">Click Aqui</a></div></td>
                                         </tr>
                                         <tr>
-                                          <td>Clan Ranking</td>
+                                          <td>&nbsp;Clan Ranking</td>
                                           <td><div align="center"><a href="index.php?do=clanrank">Click Aqui</a></div></td>
-                                        </tr>
+                                        </tr><!--
                                         <tr>
-                                          <td>Hall of Fame</td>
+                                          <td>&nbsp;Hall of Fame</td>
                                           <td><div align="center"><a href="index.php?do=halloffame">Click Aqui</a></div></td>
-                                        </tr>
+                                        </tr>-->
                                       </table>
 									</form>
 									</div>
@@ -80,6 +69,11 @@ SetTitle("SecondaryGunz - UserCP");
 								</tr>
 							</table>
 						</div>
+            </div>
+					  <td width="20" valign="top">&nbsp;</td>
+					  <td width="20" valign="top">&nbsp;</td>
+					  <td width="20" valign="top">&nbsp;</td>
+					  <td width="20" valign="top">&nbsp;</td>
 						<p align="center">&nbsp;</td>
 						<td width="171" valign="top">
 						<div align="center">

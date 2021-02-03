@@ -57,13 +57,13 @@ if(isset($_POST[submit]))
                 }
                 elseif( $imginfo[0] <= 5 || $imginfo[1] <= 5 )
                 {
-                        SetMessage("Subir Emblemam", array("El tamaño de la imagen debe de ser de 5 x 5", "Y debe ser 200 x 200 pixeles") );
+                        SetMessage("Subir Emblemam", array("El tamaï¿½o de la imagen debe de ser de 5 x 5", "Y debe ser 200 x 200 pixeles") );
                         header("Location: index.php");
                         die();
                 }else{
 
                     $tmpclid = sprintf("%d.jpg", $clid);
-                    $rftp = UploadFTPFile($tmpfile, "ftp.fantasygz.com", "fantasy1", "tavosopro", "/www/emblemtest/$tmpclid");
+                    $rftp = UploadFTPFile($tmpfile, "127.0.0.1", "demon", "123456", "$tmpclid");
 
                     if($rftp && mssql_query_logged(sprintf("UPDATE Clan SET EmblemUrl = '%d.jpg', EmblemChecksum = EmblemChecksum + 2 WHERE CLID = $clid", $clid)))
                     {
@@ -128,7 +128,7 @@ function lol()
 					<tr>
 						<td width="12" height="65" rowspan="2">&nbsp;</td>
 						<td width="50" valign="top" height="65" rowspan="2">
-						<img border="0" src="http://fantasygz.com/emblemtest/<?=$a->EmblemUrl?>" width="64" height="64" style="border: 1px solid #5D5D5D"></td>
+						<img border="0" src="http://localhost/emblem/<?=$a->EmblemUrl?>" width="64" height="64" style="border: 1px solid #5D5D5D"></td>
 						<td width="9" height="21">&nbsp;</td>
 						<td width="305" height="21">Select the image (max
 						200x200 pixels)</td>

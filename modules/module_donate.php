@@ -41,7 +41,7 @@ if( $_SESSION['AID'] == "" )
 					  <td width="20" valign="top">&nbsp;</td>
 					  <td width="20" valign="top">&nbsp;</td>
 					  <td width="20" valign="top">&nbsp;</td>
-						<td valign="top" style="background-image: url('images/md_center.png'); background-size: 100% 91%">
+						<td valign="top" style="background-image: url('images/md_center.png'); background-size: 100% 100%">
 							<div style="margin: 20px 20px 20px 20px;">
 						<div align="center">
 							<table border="0" style="border-collapse: collapse;background: url('images/md_register.png') no-repeat center top; background-size: 100% 100%" width="100%">

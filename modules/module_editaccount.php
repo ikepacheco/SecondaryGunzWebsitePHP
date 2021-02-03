@@ -39,17 +39,22 @@ if($_SESSION[Modify] != $_SESSION[AID])
                           <p>
 						</div>
 						</td>
-						<td valign="top">
+					  <td width="20" valign="top">&nbsp;</td>
+					  <td width="20" valign="top">&nbsp;</td>
+					  <td width="20" valign="top">&nbsp;</td>
+					  <td width="20" valign="top">&nbsp;</td>
+						<td valign="top" style="background-image: url('images/md_center.png'); background-size: 100% 100%">
+							<div style="margin: 20px 20px 20px 20px;">
 						<div align="center">
-							<table border="1" style="border-collapse: collapse" width="100%" bordercolor="#000000">
+							<table border="0" style="border-collapse: collapse;background: url('images/md_register.png') no-repeat center top; background-size: 100%;border-bottom: 1px solid rgba(124,255,255, 0.3)" width="100%" bordercolor="#000000">
 								<tr>
-									<td background="images/content_bar.jpg" height="24" style="background-image: url('images/content_bar.jpg'); background-repeat: no-repeat; background-position: center top">
+									<td height="24" style="">
 									<div align="center">
 										<b><font face="Tahoma" size="2">
-										Verificacion De Contrase�a</font></b></td>
+										Password Verify</font></b></td>
 								</tr>
 								<tr>
-									<td bgcolor="#2C2A2A">
+									<td>
 									<div align="center">
 										<form method="POST" action="index.php?do=editaccount" name="editacc">
 											<table border="0" style="border-collapse: collapse; float:left" width="408" height="100%">
@@ -73,7 +78,7 @@ if($_SESSION[Modify] != $_SESSION[AID])
 												<td width="9" style="background-repeat: no-repeat; background-position: center top">&nbsp;
 												</td>
 												<td width="380" style="background-repeat: no-repeat; background-position: center top" colspan="3">
-												<div align="center">Porfavor, Coloca tu Contrase�a</td>
+												<div align="center">Please insert your actual Password</td>
 												<td width="13" style="background-repeat: no-repeat; background-position: center top">&nbsp;
 												</td>
 											</tr>
@@ -89,11 +94,11 @@ if($_SESSION[Modify] != $_SESSION[AID])
 												<td width="9" style="background-repeat: no-repeat; background-position: center top">&nbsp;
 												</td>
 												<td width="177" style="background-repeat: no-repeat; background-position: center top">
-												<div align="right">Contrase�a</td>
+												<div align="right">Password</td>
 												<td width="9" style="background-repeat: no-repeat; background-position: center top">&nbsp;
 												</td>
 												<td width="209" style="background-repeat: no-repeat; background-position: center top">
-												<input name="CheckPass" size="20" class="textLogin" style="float: left" type="password"></td>
+												<input style="background: #FFF;box-shadow: inset 0 0 10px #000;color:#000;padding: 5px 10px 5px 10px;" name="CheckPass" size="20" class="textLogin" style="float: left" type="password"></td>
 												<td width="13" style="background-repeat: no-repeat; background-position: center top">&nbsp;
 												</td>
 											</tr>
@@ -110,7 +115,7 @@ if($_SESSION[Modify] != $_SESSION[AID])
 												</td>
 												<td width="380" style="background-repeat: no-repeat; background-position: center top" colspan="3">
 												<div align="center">
-												<input border="0" src="images/btn_continue_off.jpg" name="I1" width="136" height="22" id="img1337" onmouseout="FP_swapImgRestore()" onmouseover="FP_swapImg(1,1,/*id*/'img1337',/*url*/'images/btn_continue_on.jpg')" type="image"></td>
+												<input border="0" src="images/btn_continue_off.png" name="I1" width="136" height="22" id="img1337" onmouseout="FP_swapImgRestore()" onmouseover="FP_swapImg(1,1,/*id*/'img1337',/*url*/'images/btn_continue_on.png')" type="image"></td>
 												<td width="13" style="background-repeat: no-repeat; background-position: center top">&nbsp;
 												</td>
 											</tr>
@@ -129,7 +134,12 @@ if($_SESSION[Modify] != $_SESSION[AID])
 								</tr>
 							</table>
 						</div>
+						</div>
 						</td>
+					  <td width="20" valign="top">&nbsp;</td>
+					  <td width="20" valign="top">&nbsp;</td>
+					  <td width="20" valign="top">&nbsp;</td>
+					  <td width="20" valign="top">&nbsp;</td>
 						<td width="171" valign="top">
 						<div align="center">
 							<? include "blocks/block_login.php" ?>
@@ -232,16 +242,21 @@ if(isset($_POST[submit]) && $_SESSION[Modify] == $_SESSION[AID])
                           <p>
 						</div>
 						</td>
-						<td valign="top">
+						<td width="20" valign="top">&nbsp;</td>
+					  <td width="20" valign="top">&nbsp;</td>
+					  <td width="20" valign="top">&nbsp;</td>
+					  <td width="20" valign="top">&nbsp;</td>
+						<td valign="top" style="background-image: url('images/md_center.png'); background-size: 100% 68%">
+							<div style="margin: 20px 20px 20px 20px;">
 						<div align="center">
-							<table border="1" style="border-collapse: collapse" width="100%" bordercolor="#000000">
+							<table border="0" style="border-collapse: collapse;background: url('images/md_register.png') no-repeat center top; background-size: 100%;border-bottom: 1px solid rgba(124,255,255, 0.3)" width="100%" bordercolor="#000000">
 								<tr>
-									<td background="images/content_bar.jpg" height="24" style="background-image: url('images/content_bar.jpg'); background-repeat: no-repeat; background-position: center top">
-									<div align="center">
-										<b><font face="Tahoma" size="2">Editar Cuenta</font></b></td>
+									<td height="24" style="">
+									<div align="left">
+										<b><font face="Tahoma" size="2">&nbsp;&nbsp;Edit Account</font></b></td>
 								</tr>
 								<tr>
-									<td bgcolor="#2C2A2A">
+									<td>
 									<div align="center">
 										<form method="POST" action="index.php?do=editaccount" name="editacc">
 											<table border="0" style="border-collapse: collapse; float:left" width="408" height="100%">
@@ -259,7 +274,7 @@ if(isset($_POST[submit]) && $_SESSION[Modify] == $_SESSION[AID])
 											<tr>
 												<td width="11">&nbsp;</td>
 												<td width="9">
-												<img border="0" src="images/mis_arrow.jpg" width="5" height="9" id="img13"></td>
+												<img border="0" src="images/mis_arrow.png" width="5" height="9" id="img13"></td>
 												<td width="183" align="left">
 												<div align="left">UserID</td>
 												<td width="183" align="left">
@@ -268,37 +283,12 @@ if(isset($_POST[submit]) && $_SESSION[Modify] == $_SESSION[AID])
 											</tr>
 											<tr>
 												<td width="11">&nbsp;</td>
-												<td width="9">&nbsp;</td>
-												<td width="183" align="left">&nbsp;</td>
-												<td width="183" align="left">&nbsp;</td>
-												<td width="16">&nbsp;</td>
-											</tr>
-											<tr>
-												<td width="11">&nbsp;</td>
-												<td width="9">&nbsp;</td>
-												<td width="183" align="left">&nbsp;</td>
-												<td width="183" align="left">
-												<input type="checkbox" name="C1" value="ON" onclick="document.editacc.pass1.disabled = !document.editacc.pass1.disabled; document.editacc.pass2.disabled = !document.editacc.pass2.disabled; ">Editar Contrase�a</td>
-												<td width="16">&nbsp;</td>
-											</tr>
-											<tr>
-												<td width="11">&nbsp;</td>
 												<td width="9">
-												<img border="0" src="images/mis_arrow.jpg" width="5" height="9"></td>
+												<img border="0" src="images/mis_arrow.png" width="5" height="9" id="img13"></td>
 												<td width="183" align="left">
-												Contrase�a</td>
+												<div align="left">AID</td>
 												<td width="183" align="left">
-												<input disabled type="password" name="pass1" size="19" class="textLogin"></td>
-												<td width="16">&nbsp;</td>
-											</tr>
-											<tr>
-												<td width="11">&nbsp;</td>
-												<td width="9">
-												<img border="0" src="images/mis_arrow.jpg" width="5" height="9"></td>
-												<td width="183" align="left">
-												Repite la Contrase�a</td>
-												<td width="183" align="left">
-												<input disabled type="password" name="pass2" size="19" class="textLogin"></td>
+												<b><?=$_SESSION[AID]?></b></td>
 												<td width="16">&nbsp;</td>
 											</tr>
 											<tr>
@@ -310,12 +300,47 @@ if(isset($_POST[submit]) && $_SESSION[Modify] == $_SESSION[AID])
 											</tr>
 											<tr>
 												<td width="11">&nbsp;</td>
+												<td width="9">&nbsp;</td>
+												<td width="183" align="left">&nbsp;</td>
+												<td width="183" align="left">
+												<input type="checkbox" name="C1" value="ON" onclick="document.editacc.pass1.disabled = !document.editacc.pass1.disabled; document.editacc.pass2.disabled = !document.editacc.pass2.disabled; ">Edit Password</td>
+												<td width="16">&nbsp;</td>
+											</tr>
+											<tr>
+												<td width="11">&nbsp;</td>
 												<td width="9">
-												<img border="0" src="images/mis_arrow.jpg" width="5" height="9"></td>
+												<img border="0" src="images/mis_arrow.png" width="5" height="9"></td>
+												<td width="183" align="left">
+												Password</td>
+												<td width="183" align="left">
+												<input style="background: #FFF;box-shadow: inset 0 0 10px #000;color:#000;padding: 5px 10px 5px 10px;" disabled type="password" name="pass1" size="19" class="textLogin"></td>
+												<td width="16">&nbsp;</td>
+											</tr>
+											<tr>
+												<td width="11">&nbsp;</td>
+												<td width="9">
+												<img border="0" src="images/mis_arrow.png" width="5" height="9"></td>
+												<td width="183" align="left">
+												Confirm Password</td>
+												<td width="183" align="left">
+												<input style="background: #FFF;box-shadow: inset 0 0 10px #000;color:#000;padding: 5px 10px 5px 10px;" disabled type="password" name="pass2" size="19" class="textLogin"></td>
+												<td width="16">&nbsp;</td>
+											</tr>
+											<tr>
+												<td width="11">&nbsp;</td>
+												<td width="9">&nbsp;</td>
+												<td width="183" align="left">&nbsp;</td>
+												<td width="183" align="left">&nbsp;</td>
+												<td width="16">&nbsp;</td>
+											</tr>
+											<tr>
+												<td width="11">&nbsp;</td>
+												<td width="9">
+												<img border="0" src="images/mis_arrow.png" width="5" height="9"></td>
 												<td width="183" align="left">
 												E-Mail</td>
 												<td width="183" align="left">
-												<input type="text" name="email" size="19" value="<?=$_MEMBER[EMail]?>" class="textLogin"></td>
+												<input style="background: #FFF;box-shadow: inset 0 0 10px #000;color:#000;padding: 5px 10px 5px 10px;" type="text" name="email" size="19" value="<?=$_MEMBER[EMail]?>" class="textLogin"></td>
 												<td width="16">&nbsp;</td>
 											</tr>
 											<tr>
@@ -326,7 +351,7 @@ if(isset($_POST[submit]) && $_SESSION[Modify] == $_SESSION[AID])
 												<div align="left">
 												<font color="#575353">
 												<span style="font-size: 7pt">
-												Porfavor Introduce un Email valido.</span></font></td>
+												Please insert a valid E-mail.</span></font></td>
 												<td width="16">&nbsp;</td>
 											</tr>
 											<tr>
@@ -338,17 +363,16 @@ if(isset($_POST[submit]) && $_SESSION[Modify] == $_SESSION[AID])
 											</tr>
 											<tr>
 												<td width="402" colspan="5">
-												<p align="center">
-												<img border="0" src="images/mis_sepline.jpg" width="391" height="2"></td>
+												</td>
 											</tr>
 											<tr>
-												<td width="402" colspan="5" background="images/mis_eumember.jpg" height="62" style="background-image: url('images/mis_eumember.jpg'); background-repeat: no-repeat; background-position: center top">
+												<td width="402" colspan="5" background="images/mis_eumember.png" height="62" style="background-image: url('images/mis_eumember.png'); background-repeat: no-repeat; background-position: center top; background-size: 95% 100%;">
 												<div align="center">
 													<table border="0" style="border-collapse: collapse" width="404" height="100%">
 														<tr>
 															<td width="11">&nbsp;</td>
 															<td width="378">
-															<p align="center">La Pregunta secreta y la Respuesta secreta son usados para recuperar tu Cuenta en Caso de que la Olvides</td>
+															<p align="center" style="color: #13759e">Secret question and answer are used for recover account in case you forget it.</td>
 															<td width="9">&nbsp;</td>
 														</tr>
 													</table>
@@ -367,7 +391,7 @@ if(isset($_POST[submit]) && $_SESSION[Modify] == $_SESSION[AID])
 												<td width="9">&nbsp;</td>
 												<td width="183" align="left">&nbsp;</td>
 												<td width="183" align="left">
-												<input type="checkbox" name="C2" value="ON" onclick="document.editacc.sq.disabled = !document.editacc.sq.disabled; document.editacc.sa.disabled = !document.editacc.sa.disabled; ">Editar P/R</td>
+												<input type="checkbox" name="C2" value="ON" onclick="document.editacc.sq.disabled = !document.editacc.sq.disabled; document.editacc.sa.disabled = !document.editacc.sa.disabled; ">Edit Q/A</td>
 												<td width="16">&nbsp;</td>
 											</tr>
 											<tr>
@@ -375,9 +399,9 @@ if(isset($_POST[submit]) && $_SESSION[Modify] == $_SESSION[AID])
 												<td width="9">
 												<img border="0" src="images/mis_arrow.jpg" width="5" height="9"></td>
 												<td width="183" align="left">
-												Pregunta Secreta</td>
+												Secret Question</td>
 												<td width="183" align="left">
-												<input disabled type="text" name="sq" size="19" value="<?=$_MEMBER[SQ]?>" class="textLogin"></td>
+												<input style="background: #FFF;box-shadow: inset 0 0 10px #000;color:#000;padding: 5px 10px 5px 10px;" disabled type="text" name="sq" size="19" value="<?=$_MEMBER[SQ]?>" class="textLogin"></td>
 												<td width="16">&nbsp;</td>
 											</tr>
 											<tr>
@@ -392,9 +416,9 @@ if(isset($_POST[submit]) && $_SESSION[Modify] == $_SESSION[AID])
 												<td width="9">
 												<img border="0" src="images/mis_arrow.jpg" width="5" height="9"></td>
 												<td width="183" align="left">
-												Repuesta Secreta</td>
+												Secret Answer</td>
 												<td width="183" align="left">
-												<input disabled type="text" name="sa" size="19" class="textLogin"></td>
+												<input style="background: #FFF;box-shadow: inset 0 0 10px #000;color:#000;padding: 5px 10px 5px 10px;" disabled type="text" name="sa" size="19" class="textLogin"></td>
 												<td width="16">&nbsp;</td>
 											</tr>
 											<tr>
@@ -409,7 +433,7 @@ if(isset($_POST[submit]) && $_SESSION[Modify] == $_SESSION[AID])
 												<td width="9">&nbsp;</td>
 												<td width="366" colspan="2">
 												<p align="center">
-												<input border="0" src="images/btn_modifyacc_off.jpg" name="img123" width="136" height="22" onmouseout="FP_swapImgRestore()" onmouseover="FP_swapImg(1,1,/*id*/'img123',/*url*/'images/btn_modifyacc_on.jpg')" type="image"></td>
+												<input border="0" src="images/btn_modifyacc_off.png" name="img123" width="136" height="22" onmouseout="FP_swapImgRestore()" onmouseover="FP_swapImg(1,1,/*id*/'img123',/*url*/'images/btn_modifyacc_on.png')" type="image"></td>
 												<td width="16">&nbsp;</td>
 											</tr>
 											<tr>
@@ -426,7 +450,12 @@ if(isset($_POST[submit]) && $_SESSION[Modify] == $_SESSION[AID])
 								</tr>
 							</table>
 						</div>
+						</div>
 						</td>
+						<td width="20" valign="top">&nbsp;</td>
+					  <td width="20" valign="top">&nbsp;</td>
+					  <td width="20" valign="top">&nbsp;</td>
+					  <td width="20" valign="top">&nbsp;</td>
 						<td width="171" valign="top">
 						<div align="center">
 							<? include "blocks/block_login.php" ?>

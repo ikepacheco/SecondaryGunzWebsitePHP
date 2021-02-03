@@ -6,3 +6,5 @@ days
 20
 30
 permanent
+ranking
+shop

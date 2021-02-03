@@ -1,11 +1,11 @@
 <?php
 
-SetTitle("SecondaryGunz - Comprar Item");
+SetTitle("SecondaryGunz - Buy Item");
 
 if($_SESSION[AID] == "")
 {
     SetURL("index.php?do=buydonator&itemid={$_GET[itemid]}");
-    SetMessage("Mensaje de la Tienda", array("Logueate Primero Por Favor"));
+    SetMessage("Mensaje de la Tienda", array("Login first"));
     header("Location: index.php?do=login");
     die();
 }
@@ -14,7 +14,7 @@ if(!isset($_POST[itemid]))
 {
     if($_GET[itemid] == "" || !is_numeric($_GET[itemid]))
     {
-        SetMessage("Mensaje de la Tienda", array("Incorrecta Informacion Del Item"));
+        SetMessage("Mensaje de la Tienda", array("Incorrect item information"));
         header("Location: index.php?do=shopdonator");
         die();
     }
@@ -23,9 +23,27 @@ if(!isset($_POST[itemid]))
 if(isset($_POST[itemid]))
 {
     $itemid  = clean($_POST[itemid]);
-    $accid  = clean($_SESSION[AID]);
-
-    $ires = mssql_query_logged("SELECT * FROM ShopDonator(nolock) WHERE CSSID = $itemid");
+	$accid  = clean($_SESSION[AID]);
+	$price = clean($_POST[price]);
+	$period = clean($_POST[period]);
+	switch($period){
+		case $period = 0:
+			$period = 24 * 3;
+		break;
+		case $period = 1:
+			$period = 24 * 14;
+		break;
+		case $period = 2:
+			$period = 24 * 30;
+		break;
+		case $period = 3:
+			$period = 0;
+		break;
+		default:
+			$period = 0;
+		break;
+	}
+    $ires = mssql_query_logged("SELECT * FROM ShopItems(nolock) WHERE CSSID = $itemid");
 
     if(mssql_num_rows($ires) == 0)
     {
@@ -38,9 +56,8 @@ if(isset($_POST[itemid]))
 
     $ares = mssql_fetch_object(mssql_query_logged("SELECT * FROM Account(nolock) WHERE AID  = $accid"));
 
-    $totalprice       = $ires->Price;
-    $accountbalance = $ares->DonatorCoins;
-    $afterbalance   = $accountbalance - $totalprice;
+    $accountbalance = $ares->Coins;
+    $afterbalance   = $accountbalance - $price;
     $ugradeid = $ares->UGradeID;
 
     if ($itemid == 1 && $ugradeid == 2)
@@ -65,8 +82,8 @@ if(isset($_POST[itemid]))
     }else{
         if( $itemid == 1 )
         {
-            mssql_query_logged("UPDATE Account SET UGradeID = 2, DonatorCoins = DonatorCoins - $totalprice WHERE AID = {$_SESSION[AID]}");
-            mssql_query_logged("UPDATE ShopDonator SET Selled = Selled + 1 WHERE CSSID = $itemid");
+            mssql_query_logged("UPDATE Account SET UGradeID = 2, Coins = Coins - $price WHERE AID = {$_SESSION[AID]}");
+            mssql_query_logged("UPDATE ShopItems SET Selled = Selled + 1 WHERE CSSID = $itemid");
 
             SetMessage("Mensaje de la Tienda", array("Compra Del Jjang Completa"));
             header("Location: index.php?do=shopdonator");
@@ -74,12 +91,12 @@ if(isset($_POST[itemid]))
         }
         else
         {
-            mssql_query_logged("UPDATE Account SET DonatorCoins = DonatorCoins - $totalprice WHERE AID = {$_SESSION[AID]}");
+            mssql_query_logged("UPDATE Account SET Coins = Coins - $price WHERE AID = {$_SESSION[AID]}");
             mssql_query_logged("UPDATE ShopItems SET Selled = Selled + 1 WHERE CSSID = $itemid");
 
             //Head
-            mssql_query_logged("INSERT INTO AccountItem(AID, ItemID, RentDate, Cnt)VALUES" .
-                        "($accid, {$ires->zItemID}, GETDATE(), 1)");
+            mssql_query_logged("INSERT INTO AccountItem(AID, ItemID, RentDate, RentHourPeriod, Cnt)VALUES" .
+                        "($accid, {$ires->zItemID}, GETDATE(), $period ,1)");
 
 
             SetMessage("Mensaje de la Tienda", array("El Item a sido Comprado Satisfactoriamente, Tu item esta en el Storage"));
@@ -91,7 +108,7 @@ if(isset($_POST[itemid]))
 }else{
     $itemid  = clean($_GET[itemid]);
 
-    $ires = mssql_query_logged("SELECT * FROM ShopDonator(nolock) WHERE CSSID = $itemid");
+    $ires = mssql_query_logged("SELECT * FROM ShopItems(nolock) WHERE CSSID = '$itemid'");
 
 
     if(mssql_num_rows($ires) == 0)
@@ -105,24 +122,24 @@ if(isset($_POST[itemid]))
 
     $data = mssql_fetch_object($ires);
     switch($data->Slot)
-{
-    case 3:
-        $type = "Armadura";
-    break;
-    case 2:
-        $type = "Melee";
-    break;
-    case 1:
-        $type = "Rango";
-    break;
-    case 5:
-        $type = "Especial";
-    break;
-    default:
-        $type = "Armadura";
-    break;
-}
-}
+	{
+		case 3:
+			$type = "Armadura";
+		break;
+		case 2:
+			$type = "Melee";
+		break;
+		case 1:
+			$type = "Rango";
+		break;
+		case 5:
+			$type = "Especial";
+		break;
+		default:
+			$type = "Armadura";
+		break;
+	}
+	}
 
 
 
@@ -131,90 +148,12 @@ if(isset($_POST[itemid]))
 
 <table border="0" style="border-collapse: collapse" width="778">
 					<tr>
-                        <td width="164" valign="top">
-                            <table border="0" style="border-collapse: collapse" width="164">
-                            <tr>
-                                <td width="164" style="background-image: url('images/md_content_menu_t.jpg'); background-repeat: no-repeat; background-position: center top" valign="top">&nbsp;
-                                
-                                </td>
-                            </tr>
-                            <tr>
-                                <td width="164" style="background-image: url('images/md_content_menu_m.jpg'); background-repeat: repeat-y; background-position: center top" valign="top">
-                                <div align="center">
-        							<table border="0" style="border-collapse: collapse" width="164">
-        								<tr>
-        									<td width="14">&nbsp;</td>
-        									<td width="127">
-                                            <a href="index.php?do=shop">
-                                            <img border="0" src="images/btn_newestitems_off.jpg" id = "76176img" width="132" height="22" onmouseout="FP_swapImgRestore()" onmouseover="FP_swapImg(1,1,/*id*/'76176img',/*url*/'images/btn_newestitems_on.jpg')"></a></td>
-        									<td width="17">&nbsp;</td>
-        								</tr>
-        								<tr>
-        									<td width="14">&nbsp;</td>
-        									<td width="127"><a href="index.php?do=shopdonator"><img src="images/btn_donatoritems_off.jpg" alt="" name="donatoritems" width="132" height="26" border="0" id="donatoritems" onmouseover="FP_swapImg(1,1,/*id*/'donatoritems',/*url*/'images/btn_donatoritems_on.jpg')" onmouseout="FP_swapImgRestore()" /></a></td>
-       									  <td width="17">&nbsp;</td>
-        								</tr>
-        								<tr>
-        									<td width="14">&nbsp;</td>
-        									<td width="127"><a href="index.php?do=shopdonator"><img border="0" src="images/btn_eventitems_off.jpg" id="eventitems37" width="132" height="26" onmouseout="FP_swapImgRestore()" onmouseover="FP_swapImg(1,1,/*id*/'eventitems37',/*url*/'images/btn_eventitems_on.jpg')" /></a></td>
-       									  <td width="17">&nbsp;</td>
-        								</tr>
-        								<tr>
-        									<td width="14">&nbsp;</td>
-        									<td width="127"><a href="index.php?do=shopsets"><img src="images/btn_completeset_off.jpg" alt="" width="132" height="26" border="0" id="7816imgxD271" onmouseover="FP_swapImg(1,1,/*id*/'7816imgxD271',/*url*/'images/btn_completeset_on.jpg')" onmouseout="FP_swapImgRestore()" /></a></td>
-        									<td width="17">&nbsp;</td>
-        								</tr>
-        								<tr>
-        									<td width="14">&nbsp;</td>
-        									<td width="127"><a href="index.php?do=shopdonator&cat=3"><img border="0" src="<?=($_GET[cat] <> 3) ? "images/btn_armor_off.jpg" : "images/btn_armor_on.jpg"?>" id="7816img272" width="132" height="25" onmouseout="FP_swapImgRestore()" onmouseover="FP_swapImg(1,1,/*id*/'7816img272',/*url*/'images/btn_armor_on.jpg')" /></a></td>
-        									<td width="17">&nbsp;</td>
-        								</tr>
-        								<tr>
-        									<td width="14">&nbsp;</td>
-        									<td width="127"><a href="index.php?do=shopdonator&cat=2"><img border="0" src="<?=($_GET[cat] <> 2) ? "images/btn_meleeweapons_off.jpg" : "images/btn_meleeweapons_on.jpg"?>" id="7816img273" width="132" height="25" onmouseout="FP_swapImgRestore()" onmouseover="FP_swapImg(1,1,/*id*/'7816img273',/*url*/'images/btn_meleeweapons_on.jpg')" /></a></td>
-        									<td width="17">&nbsp;</td>
-        								</tr>
-        								<tr>
-        									<td width="14">&nbsp;</td>
-        									<td width="127"><a href="index.php?do=shopdonator&cat=1"><img border="0" src="<?=($_GET[cat] <> 1) ? "images/btn_rangedweapons_off.jpg" : "images/btn_rangedweapons_on.jpg"?>" id="7816img274" width="132" height="27" onmouseout="FP_swapImgRestore()" onmouseover="FP_swapImg(1,1,/*id*/'7816img274',/*url*/'images/btn_rangedweapons_on.jpg')" /></a></td>
-        									<td width="17">&nbsp;</td>
-        								</tr>
-        								<tr>
-        								  <td>&nbsp;</td>
-        								  <td><a href="index.php?do=shopdonator&cat=5"><img border="0" src="<?=($_GET[cat] <> 5) ? "images/btn_specialitems_off.jpg" : "images/btn_specialitems_on.jpg"?>" id="7816img275" width="132" height="23" onmouseout="FP_swapImgRestore()" onmouseover="FP_swapImg(1,1,/*id*/'7816img275',/*url*/'images/btn_specialitems_on.jpg')" /></a></td>
-        								  <td>&nbsp;</td>
-      								  </tr>
-        								</table>
-        						</div>
-
-        						</td>
-                        </tr>
-                        <tr>
-    						<td width="164" style="background-image: url('images/md_content_menu_d.jpg'); background-repeat: no-repeat; background-position: center top" valign="top">
-                            <div align="center">
-                            &nbsp;<p>&nbsp;</p>
-    						<p>&nbsp;</p>
-    						<p>&nbsp;</p>
-    						<p>&nbsp;</p>
-    						<p>&nbsp;</p>
-    						<p>&nbsp;</p>
-    						<p>&nbsp;</p>
-    						<p>&nbsp;</p>
-    						<p>&nbsp;</p>
-    						<p>&nbsp;</p>
-    						<p>&nbsp;</p>
-    						<p>&nbsp;</p>
-    						<p>&nbsp;</p>
-    						<p>&nbsp;</p>
-    						<p>&nbsp;</div></td>
-                        </tr>
-                            </table>
-                        </td>
+                              
 						<td width="599" valign="top">
 						<div align="center">
-							<table border="0" style="background-position: center top; border-collapse: collapse; background-image:url('images/content_bg.jpg'); background-repeat:repeat-y" width="603">
+							<table border="0" style="background-position: center top; border-collapse: collapse; background-image:url('images/content_bg.jpg'); background-repeat:repeat-y; background-size: 100%" width="603">
 								<tr>
-									<td style="background-image: url('images/content_title_shop_buyitem.jpg'); background-repeat: no-repeat; background-position: center top" height="25" width="601" colspan="3">&nbsp;</td>
+									<td style="background-image: url('images/content_title_shop_buyitem.jpg'); background-repeat: no-repeat; background-position: center top; background-size: 100%" height="55" width="601" colspan="3">&nbsp;</td>
 								</tr>
 								<tr>
 									<td style="background-repeat: repeat; background-position: center top" width="597" colspan="3">&nbsp;</td>
@@ -223,7 +162,7 @@ if(isset($_POST[itemid]))
 									<td style="background-repeat: repeat; background-position: center top" width="7">&nbsp;</td>
 									<td style="background-repeat: repeat; background-position: center top" width="583" valign="top">
 									<div align="center">
-										<table border="1" style="border-collapse: collapse; border: 1px solid #4A4648" width="100%" bordercolor="#4A4648">
+										<table border="0" style="border-collapse: collapse;background: #272727; border: 1px solid rgba(124,255,255, 0.3)" width="100%" bordercolor="#4A4648">
 											<tr>
 												<td>
 												<div align="center">
@@ -237,7 +176,7 @@ if(isset($_POST[itemid]))
 															<td width="11">&nbsp;</td>
 															<td width="104" valign="top">
 															<div align="center">
-															<img border="0" src="images/shop/<?=$data->ImageURL?>" width="100" height="100" style="border: 2px solid #1D1B1C"></td>
+															<img border="0" src="images/shop/donator/<?=$imgurl = file_exists("images/shop/donator/".$data->ImageURL) ? $data->ImageURL : "noimage.jpg" ?>" width="100" height="100" style="border: 2px solid #1D1B1C"></td>
 															<td width="458" colspan="2">
 															<div align="center">
 																<table border="0" style="border-collapse: collapse" width="458" height="100%">
@@ -275,17 +214,23 @@ if(isset($_POST[itemid]))
 																	<tr>
 																		<td width="19">&nbsp;</td>
 																		<td width="61" align="left">
-																		Precio:</td>
+																		</td>
 																		<td width="372" align="left">
-																		<span id="currentprice"><?=$data->Price?></span>
+																		<span id="currentprice"></span>
                                                                         <input type="hidden" name="itemid" value="<?=$_GET[itemid]?>">
                                                                         </td>
 																	</tr>
 																	<tr>
 																		<td width="19">&nbsp;</td>
-																		<td width="435" colspan="2" rowspan="5" style="background-image: url('images/mis_eumember.jpg'); background-repeat: no-repeat; background-position: center" valign="middle">
+																		<td width="435" colspan="2" rowspan="5" style="background-image: url('images/mis_eumember.png'); background-repeat: no-repeat; background-position: center; background-size: 80% 60%" valign="middle">
 																		<div align="center">
-																																							Duracion (Dias): Permanente.
+																			Period. <select name="price" id="price" style="padding: 1px 5px 1px 5px; box-shadow: inset 0px 0px 8px #000">
+																				<option value="<?=$data->Price1?>">3 days (<?=$data->Price1?> coins)</option>
+																				<option value="<?=$data->Price2?>">14 days (<?=$data->Price2?> coins)</option>
+																				<option value="<?=$data->Price3?>" selected>30 days (<?=$data->Price3?> coins)</option>
+																				<option value="<?=$data->Price?>">Permanent (<?=$data->Price?> coins)</option>
+																			</select>
+																			<input style="display: none" type="text" name="period" id="period" value="2">
                                                                         </div>
 																		</td>
 																	</tr>
@@ -313,25 +258,39 @@ if(isset($_POST[itemid]))
 															<div align="center">
 																<table border="0" style="border-collapse: collapse" width="435" height="66">
 																	<tr>
-																		<td style="background-image: url('images/mis_finalbalance.jpg'); background-repeat: no-repeat; background-position: right center" width="419">
+																		<td style="background-image: url('images/mis_finalbalance.png'); background-repeat: no-repeat; background-position: top center" width="419">
 																		<div align="center">
+																		<STYLE>
+																			.pricetext{
+																				border: none; 
+																				background: rgba(0,0,0,0);
+																				padding: 0; margin:0;
+																				color: #fff !important;
+																			}
+																			.pricetext disabled{
+																				color: #fff;
+																			}
+																		</STYLE>
 																			<table border="0" style="border-collapse: collapse" width="419" height="100%">
 																				<tr>
 																					<td width="216">&nbsp;</td>
-																					<td width="117" align="left">Total:</td>
-																					<td width="62" align="left"><span id="Total"><?=$data->Price?></span></td>
+																					<td width="117" align="left">Price:</td>
+																					<td width="62" align="left"><input class="pricetext"  disabled id="pricetxt" type="text" value="<?=$data->Price3?>"></td>
 																					<td width="16">&nbsp;</td>
 																				</tr>
 																				<tr>
 																					<td width="216">&nbsp;</td>
 																					<td width="117" align="left">Tienes SACoins</td>
-																					<td width="62" align="left"><span id="currbalance"><?=$acd->Coins?></span></td>
+																					<td width="62" align="left"><input class="pricetext" disabled id="coinsaccount" type="text" value="<?=$acd->Coins?>"></td>
 																					<td width="16">&nbsp;</td>
 																				</tr>
+																				<?
+																					$aftercoins = $acd->Coins - $data->Price3;
+																				?>
 																				<tr>
 																					<td width="216">&nbsp;</td>
 																					<td width="117" align="left">Despues:</td>
-																					<td width="62" align="left"><span id="afterpur"><?=(($acd->Coins) - ($data->Price))?></span></td>
+																					<td width="62" align="left"><input class="pricetext" disabled id="coinsafter" type="text" value="<?=$aftercoins?>"></td>
 																					<td width="16">&nbsp;</td>
 																				</tr>
 																				<tr>
@@ -346,6 +305,20 @@ if(isset($_POST[itemid]))
 															</div>
 															</td>
 														</tr>
+														<script>
+																			document.getElementById("price").onchange = function() {myFunction()};
+
+																			function myFunction() {
+																				var price = document.getElementById("price");
+																				var pricetxt = document.getElementById("pricetxt");
+																				var period = document.getElementById("period");
+																				var coinsafter = document.getElementById("coinsafter");
+																				var coinsaccount = document.getElementById("coinsaccount");
+																				pricetxt.value = price.value;
+																				period.value = price.selectedIndex;
+																				coinsafter.value = coinsaccount.value - price.value;
+																			}
+																		</script>
 														<tr>
 															<td width="11">&nbsp;</td>
 															<td width="104">&nbsp;</td>
@@ -387,7 +360,7 @@ if(isset($_POST[itemid]))
 									<img border="0" src="images/btn_cancel_off.jpg" width="79" height="23" id="img1765" onmouseout="FP_swapImgRestore()" onmouseover="FP_swapImg(1,1,/*id*/'img1765',/*url*/'images/btn_cancel_on.jpg')"></a></td>
 								</tr>
 								<tr>
-									<td height="17" style="background-image: url('images/content_top.jpg'); background-repeat: no-repeat; background-position: center bottom" width="601" colspan="3"></td>
+									<td height="17" style="background-image: url('images/content_top.jpg'); background-repeat: no-repeat; background-position: center bottom; background-size: 100%" width="601" colspan="3"></td>
 								</tr>
 							</table>
 						</div>

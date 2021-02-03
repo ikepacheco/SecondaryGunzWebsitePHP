@@ -1,12 +1,15 @@
+<?
+include "configsing.php";
+?>
 <head>
 <script type="text/javascript">
     function UpdateSignature()
     {
         var cid = document.signature.charlist.value;
         var firma = document.getElementById("firma");
-        firma.innerHTML = '<img src="genericsing.php?cid='+ cid + '" />';
-        document.signature.forumcode.value = '[URL="http://s2.subirimagenes.com/privadas/previo/thump_826455head.jpg"][IMG]http://s2.subirimagenes.com/privadas/previo/thump_826455head.jpg' + cid + '[/IMG][/URL]';
-        document.signature.directlink.value = "http://s2.subirimagenes.com/privadas/previo/thump_826455head.jpg" + cid + "";
+        firma.innerHTML = '<img src="<?=$url?>/genericsing.php?cid='+ cid + '" />';
+        document.signature.forumcode.value = '[URL="<?=$url?>/"][IMG]<?=$url?>/genericsing.php?cid=' + cid + '[/IMG][/URL]';
+        document.signature.directlink.value = "<?=$url?>/genericsing.php?cid=" + cid + "";
     }
 
 </script>
@@ -21,7 +24,7 @@ if( $_SESSION['AID'] == "" )
     die();
 }
 
-SetTitle("SecondaryGunZ - Firma din&aacute;mica");
+SetTitle("SecondaryGunZ - Signature");
 
     $qbt01 = mssql_query_logged("SELECT CID, Name FROM Character(nolock) WHERE AID = '".$_SESSION['AID']."'AND CharNum != '-1'");
 
@@ -46,17 +49,22 @@ SetTitle("SecondaryGunZ - Firma din&aacute;mica");
                           <p>
 						</div>
 						</td>
-						<td valign="top">
+						<td width="20" valign="top">&nbsp;</td>
+					  <td width="20" valign="top">&nbsp;</td>
+					  <td width="20" valign="top">&nbsp;</td>
+					  <td width="20" valign="top">&nbsp;</td>
+						<td valign="top" style="background-image: url('images/md_center.png'); background-size: 100% 55%">
+							<div style="margin: 20px 20px 20px 20px;">
 						<div align="center">
-							<table border="1" style="border-collapse: collapse" width="100%" bordercolor="#000000">
+							<table border="0" style="border-collapse: collapse;background: url('images/md_register.png') no-repeat center top; background-size: 100%; border-bottom: 1px solid rgba(124,255,255, 0.3)" width="100%">
 								<tr>
-									<td background="images/content_bar.jpg" height="24" style="background-image: url('images/content_bar.jpg'); background-repeat: no-repeat; background-position: center top">
-									<div align="center">
-										<b><font face="Tahoma" size="2">SecondaryGunZ 
+									<td height="24" style="">
+									<div align="left">
+										<b><font face="Tahoma" size="2">&nbsp;&nbsp;SecondaryGunZ 
 										Generator</font></b></td>
 							  </tr>
 								<tr>
-									<td bgcolor="#2C2A2A">
+									<td>
 									<div align="center"><form name="signature">
 										<table border="0" style="border-collapse: collapse" width="414" height="100%">
 											<tr>
@@ -67,8 +75,7 @@ SetTitle("SecondaryGunZ - Firma din&aacute;mica");
 											<tr>
 												<td width="10">&nbsp;</td>
 												<td width="181">
-												<p align="right">Selecciona tu 
-												Personaje</td>
+												<p align="right">Select your character</td>
 												<td width="13">&nbsp;</td>
 												<td width="190">
 												<select size="1" name="charlist" onchange="UpdateSignature()">
@@ -90,7 +97,7 @@ SetTitle("SecondaryGunZ - Firma din&aacute;mica");
 											</tr>
 											<tr>
 												<td align="center" colspan="5">
-												Tu Firma:</td>
+												Signature:</td>
 											</tr>
 											<tr>
 												<td width="10">&nbsp;</td>
@@ -108,7 +115,7 @@ SetTitle("SecondaryGunZ - Firma din&aacute;mica");
                                             <tr>
                                                 <td width="10">&nbsp;</td>
 												<td align="center" width="315" colspan="3">
-                                                C�digo para los Foros:<br />
+                                                Code for insert in foros:<br />
                                                 <input type="text" name="forumcode" onclick="javascript:select();" readonly="readonly" style="width: 310px; font-size: 11px;"/></td>
 												<td width="11">&nbsp;</td>
 											</tr>
@@ -120,7 +127,7 @@ SetTitle("SecondaryGunZ - Firma din&aacute;mica");
                                             <tr>
                                                 <td width="10">&nbsp;</td>
 												<td align="center" width="315" colspan="3">
-                                                Link Directo:<br />
+                                                Direct Link:<br />
                                                 <input type="text" name="directlink" onclick="javascript:select();" readonly="readonly" style="width: 310px; font-size: 11px;"/></td>
 												<td width="11">&nbsp;</td>
 											</tr>
@@ -133,6 +140,11 @@ SetTitle("SecondaryGunZ - Firma din&aacute;mica");
 								</tr>
 							</table>
 						</div>
+						</div>
+						<td width="20" valign="top">&nbsp;</td>
+					  <td width="20" valign="top">&nbsp;</td>
+					  <td width="20" valign="top">&nbsp;</td>
+					  <td width="20" valign="top">&nbsp;</td>
 						<p align="center">&nbsp;</td>
 						<td width="171" valign="top">
 						<div align="center">
